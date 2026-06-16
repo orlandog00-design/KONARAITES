@@ -99,10 +99,10 @@
                  <form class="quote-form" id="quoteForm" onsubmit="event.preventDefault(); calculateQuote();">
                     <div class="form-row">
                         <div class="form-group">
-                            <label data-i18n="quote_from">📍 Ciudad de Origen</label>
+                            <label data-i18n="quote_from">📍 Punto de Recogida</label>
                             <div class="autocomplete-wrapper">
                                 <input type="text" id="quoteFrom" required autocomplete="off" 
-                                    placeholder="Ciudad, Estado" 
+                                    placeholder="Dirección exacta o Ciudad" 
                                     data-i18n-placeholder="quote_from_ph"
                                     oninput="handleAutocomplete(this, 'quoteFromList')"
                                     onblur="hideDropdown('quoteFromList')">
@@ -110,10 +110,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="quote_to">🏁 Ciudad de Destino</label>
+                            <label data-i18n="quote_to">🏁 Destino Final</label>
                             <div class="autocomplete-wrapper">
                                 <input type="text" id="quoteTo" required autocomplete="off" 
-                                    placeholder="Ciudad, Estado" 
+                                    placeholder="Dirección exacta o Ciudad" 
                                     data-i18n-placeholder="quote_to_ph"
                                     oninput="handleAutocomplete(this, 'quoteToList')"
                                     onblur="hideDropdown('quoteToList')">
@@ -204,10 +204,10 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label data-i18n="book_pickup">📍 Dirección de Recogida</label>
+                            <label data-i18n="book_pickup">📍 Punto de Recogida</label>
                             <div class="autocomplete-wrapper">
                                 <input type="text" id="bookPickup" required autocomplete="off"
-                                    placeholder="Ciudad, Estado de recogida"
+                                    placeholder="Dirección o Ciudad"
                                     data-i18n-placeholder="book_pickup_ph"
                                     oninput="handleAutocomplete(this, 'bookPickupList')"
                                     onblur="hideDropdown('bookPickupList')">
@@ -215,10 +215,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="book_dropoff">🏁 Dirección de Destino</label>
+                            <label data-i18n="book_dropoff">🏁 Destino Final</label>
                             <div class="autocomplete-wrapper">
                                 <input type="text" id="bookDropoff" required autocomplete="off"
-                                    placeholder="Ciudad, Estado de destino"
+                                    placeholder="Dirección o Ciudad"
                                     data-i18n-placeholder="book_dropoff_ph"
                                     oninput="handleAutocomplete(this, 'bookDropoffList')"
                                     onblur="hideDropdown('bookDropoffList')">

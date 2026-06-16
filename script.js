@@ -540,25 +540,22 @@ async function handleAutocomplete(input, dropdownId) {
         dropdown.classList.add('open');
     }
 
-    // 2. Fetch live API for exact addresses
+    // 2. Fetch live API for exact addresses (Uber-like accuracy via ArcGIS)
     clearTimeout(autocompleteTimeout);
     autocompleteTimeout = setTimeout(async () => {
         try {
-            const res = await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(val + ", USA")}&limit=4`);
+            const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=${encodeURIComponent(val + ", USA")}&maxLocations=4&f=json`);
             if (!res.ok) return;
             const data = await res.json();
             
-            if (data.features && data.features.length > 0) {
-                let apiHtml = data.features.map(f => {
-                    const props = f.properties;
-                    const coords = f.geometry.coordinates; // [lon, lat]
-                    let name = props.name || props.city || props.state || '';
-                    if (props.street) name = `${props.housenumber ? props.housenumber + ' ' : ''}${props.street}, ${name}`;
-                    const state = props.state || '';
+            if (data.candidates && data.candidates.length > 0) {
+                let apiHtml = data.candidates.map(c => {
+                    const name = c.address.replace(/'/g, "\\'");
+                    const coords = c.location; // {x: lon, y: lat}
                     return `<div class="autocomplete-item api-match" style="border-left: 3px solid var(--blue-light);"
-                        onmousedown="selectCity('${input.id}', '${dropdownId}', '${name.replace(/'/g, "\\'")}', '${state}', ${coords[1]}, ${coords[0]})"
+                        onmousedown="selectCity('${input.id}', '${dropdownId}', '${name}', '', ${coords.y}, ${coords.x})"
                     >
-                        ${name} <span class="state">${state} (Exact)</span>
+                        ${c.address} <span class="state">(Exacto)</span>
                     </div>`;
                 }).join('');
                 
@@ -731,8 +728,10 @@ const translations = {
         phone_banner_text: "¿Prefieres llamar? Estamos disponibles:",
         quote_tag: "Cotización Gratis", quote_title: "¿Cuánto costará tu raite?",
         quote_subtitle: "Selecciona origen y destino — calculamos la distancia y el precio al instante.",
-        quote_from: "📍 Ciudad de Origen", quote_from_ph: "Ej: Miami, FL",
-        quote_to: "🏁 Ciudad de Destino", quote_to_ph: "Ej: Atlanta, GA",
+        quote_from: "📍 Punto de Recogida",
+        quote_from_ph: "Dirección exacta o Ciudad",
+        quote_to: "🏁 Destino Final",
+        quote_to_ph: "Dirección exacta o Ciudad",
         quote_distance_label: "Distancia Calculada (millas)", quote_miles_ph: "Auto-calculado al seleccionar ciudades",
         quote_passengers: "👥 Número de Pasajeros", quote_btn: "Calcular Mi Cotización →",
         result_est: "Estimación de precio",
@@ -748,8 +747,10 @@ const translations = {
         book_subtitle: "Completa el formulario y te contactamos por WhatsApp para confirmar.",
         book_name: "👤 Nombre Completo", book_name_ph: "Tu nombre completo",
         book_phone: "📱 Número de Teléfono / WhatsApp", book_phone_ph: "(555) 123-4567",
-        book_pickup: "📍 Dirección de Recogida", book_pickup_ph: "Ciudad, Estado de recogida",
-        book_dropoff: "🏁 Dirección de Destino", book_dropoff_ph: "Ciudad, Estado de destino",
+        book_pickup: "Punto de Recogida",
+        book_pickup_ph: "Dirección o Ciudad",
+        book_dropoff: "Destino Final",
+        book_dropoff_ph: "Dirección o Ciudad",
         book_date: "📅 Fecha de Viaje", book_time: "🕐 Hora de Recogida",
         book_pax: "👥 Número de Pasajeros", book_luggage: "🧳 ¿Cuántas Maletas?", luggage_none: "Ninguna",
         book_notes: "📝 Notas Adicionales (opcional)", book_notes_ph: "Cualquier información adicional sobre tu viaje...",
@@ -777,8 +778,10 @@ const translations = {
         phone_banner_text: "Prefer to call? We're available:",
         quote_tag: "Free Quote", quote_title: "How much will your ride cost?",
         quote_subtitle: "Select origin and destination — we calculate the distance and price instantly.",
-        quote_from: "📍 Origin City", quote_from_ph: "Ex: Miami, FL",
-        quote_to: "🏁 Destination City", quote_to_ph: "Ex: Atlanta, GA",
+        quote_from: "📍 Pickup Point",
+        quote_from_ph: "Exact Address or City",
+        quote_to: "🏁 Final Destination",
+        quote_to_ph: "Exact Address or City",
         quote_distance_label: "Calculated Distance (miles)", quote_miles_ph: "Auto-calculated when cities are selected",
         quote_passengers: "👥 Number of Passengers", quote_btn: "Calculate My Quote →",
         result_est: "Price estimate",
