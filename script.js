@@ -540,22 +540,22 @@ async function handleAutocomplete(input, dropdownId) {
         dropdown.classList.add('open');
     }
 
-    // 2. Fetch live API for exact addresses (Uber-like accuracy via ArcGIS)
+    // 2. Fetch live API for exact addresses (Uber-like accuracy via ArcGIS Suggest)
     clearTimeout(autocompleteTimeout);
     autocompleteTimeout = setTimeout(async () => {
         try {
-            const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=${encodeURIComponent(val + ", USA")}&maxLocations=4&f=json`);
+            const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest?text=${encodeURIComponent(val)}&countryCode=USA&maxSuggestions=4&f=json`);
             if (!res.ok) return;
             const data = await res.json();
             
-            if (data.candidates && data.candidates.length > 0) {
-                let apiHtml = data.candidates.map(c => {
-                    const name = c.address.replace(/'/g, "\\'");
-                    const coords = c.location; // {x: lon, y: lat}
+            if (data.suggestions && data.suggestions.length > 0) {
+                let apiHtml = data.suggestions.map(s => {
+                    const name = s.text.replace(/'/g, "\\'");
+                    const magicKey = s.magicKey;
                     return `<div class="autocomplete-item api-match" style="border-left: 3px solid var(--blue-light);"
-                        onmousedown="selectCity('${input.id}', '${dropdownId}', '${name}', '', ${coords.y}, ${coords.x})"
+                        onmousedown="selectCity('${input.id}', '${dropdownId}', '${name}', '', null, null, '${magicKey}')"
                     >
-                        ${c.address} <span class="state">(Exacto)</span>
+                        ${s.text}
                     </div>`;
                 }).join('');
                 
@@ -568,16 +568,32 @@ async function handleAutocomplete(input, dropdownId) {
     }, 400); // 400ms debounce
 }
 
-function selectCity(inputId, dropdownId, city, state, lat, lon) {
+async function selectCity(inputId, dropdownId, city, state, lat, lon, magicKey = null) {
     const input = document.getElementById(inputId);
     input.value = state ? `${city}, ${state}` : city;
-
-    const cityData = { city, state, lat, lon };
-
-    if (inputId === 'quoteFrom') selectedFrom = cityData;
-    else if (inputId === 'quoteTo') selectedTo = cityData;
-
     document.getElementById(dropdownId).classList.remove('open');
+
+    let finalLat = lat;
+    let finalLon = lon;
+
+    // If it's an API suggestion, we need to fetch the coordinates using the magicKey
+    if (magicKey && !lat && !lon) {
+        try {
+            const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?magicKey=${magicKey}&f=json`);
+            const data = await res.json();
+            if (data.candidates && data.candidates.length > 0) {
+                finalLat = data.candidates[0].location.y;
+                finalLon = data.candidates[0].location.x;
+            }
+        } catch(e) {
+            console.error("Error fetching coordinates for suggestion", e);
+        }
+    }
+
+    const cityData = { city, state, lat: finalLat, lon: finalLon };
+
+    if (inputId === 'quoteFrom' || inputId === 'bookPickup') selectedFrom = cityData;
+    else if (inputId === 'quoteTo' || inputId === 'bookDropoff') selectedTo = cityData;
 }
 
 function hideDropdown(dropdownId) {
