@@ -1,113 +1,329 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONARAITES | Innovative Solutions for Modern Companies</title>
-    <meta name="description" content="KONARAITES provides top-tier digital solutions, empowering modern companies to achieve their goals with cutting-edge technology.">
+    <title>KONA RAITES | Tu Raite, Tu Manera</title>
+    <meta name="description" content="KONA RAITES – Viajes de estado a estado. Pide tu cotización o reserva tu raite hoy. Servicio seguro, puntual y económico.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">KONARAITES</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
+            <a href="#" class="logo-link">
+                <div class="logo-text">KONA<span>RAITES</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#cotizacion" data-i18n="nav_quote">Cotizar</a></li>
+                <li><a href="#reservar" data-i18n="nav_book">Reservar</a></li>
+                <li><a href="#como-funciona" data-i18n="nav_how">¿Cómo Funciona?</a></li>
+                <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+                <li>
+                    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">
+                        <span class="lang-icon">🌐</span>
+                        <span id="langLabel">English</span>
+                    </button>
+                </li>
             </ul>
-            <div class="mobile-menu-btn">
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content fade-in-up">
-                <h1>Crafting the <span class="gradient-text">Digital Future</span></h1>
-                <p>We build premium, scalable, and stunning digital experiences that elevate your brand and drive results.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn-primary lg">Explore Services</a>
-                    <a href="#contact" class="btn-secondary lg">Contact Us</a>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="road-lines">
+                <div class="road-line"></div>
+                <div class="road-line"></div>
+                <div class="road-line"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" data-i18n="hero_badge">🚗 Viajes de Estado a Estado</div>
+            <h1 class="hero-title">
+                <span data-i18n="hero_title_1">Tu Raite.</span><br>
+                <span class="gold-text" data-i18n="hero_title_2">Tu Manera.</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Viajes cómodos, seguros y puntuales a cualquier estado del país. Reserva en línea y recibe tu confirmación por WhatsApp.</p>
+            <div class="hero-cta">
+                <a href="#cotizacion" class="btn-gold" data-i18n="hero_cta1">Obtener Cotización</a>
+                <a href="#reservar" class="btn-outline" data-i18n="hero_cta2">Reservar Mi Raite</a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item">
+                    <span class="trust-icon">✅</span>
+                    <span data-i18n="trust_1">100% Seguro</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">⚡</span>
+                    <span data-i18n="trust_2">Confirmación por WhatsApp</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">💰</span>
+                    <span data-i18n="trust_3">Precios Claros</span>
                 </div>
             </div>
-            <div class="hero-background">
-                <div class="glow-orb orb-1"></div>
-                <div class="glow-orb orb-2"></div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services" class="services">
-            <div class="section-header fade-in-up">
-                <h2>Our Expertise</h2>
-                <p>Comprehensive solutions designed for the modern web.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in-up delay-1">
-                    <div class="icon">💻</div>
-                    <h3>Web Development</h3>
-                    <p>High-performance, visually stunning websites built with the latest technologies.</p>
-                </div>
-                <div class="service-card fade-in-up delay-2">
-                    <div class="icon">📱</div>
-                    <h3>App Design</h3>
-                    <p>Intuitive and engaging mobile applications for iOS and Android.</p>
-                </div>
-                <div class="service-card fade-in-up delay-3">
-                    <div class="icon">🚀</div>
-                    <h3>Digital Marketing</h3>
-                    <p>Data-driven strategies to maximize your online presence and ROI.</p>
-                </div>
-            </div>
-        </section>
+    <!-- PHONE CTA BANNER -->
+    <div class="phone-banner">
+        <p><span data-i18n="phone_banner_text">¿Prefieres llamar? Estamos disponibles:</span> <a href="tel:7863971861">📞 786-397-1861</a> &nbsp;|&nbsp; <a href="https://wa.me/17863971861" target="_blank">💬 WhatsApp</a></p>
+    </div>
 
-        <section id="about" class="about">
-            <div class="about-container fade-in-up">
-                <div class="about-text">
-                    <h2>Who We Are</h2>
-                    <p>At KONARAITES, we are a passionate team of designers, developers, and strategists. We believe in pushing the boundaries of what's possible on the web, delivering solutions that are not only functional but truly memorable.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Projects Delivered</span>
+    <!-- QUOTE CALCULATOR -->
+    <section class="section" id="cotizacion">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="quote_tag">Cotización Gratis</div>
+                <h2 data-i18n="quote_title">¿Cuánto costará tu raite?</h2>
+                <p data-i18n="quote_subtitle">Ingresa tu origen y destino para obtener una estimación al instante.</p>
+            </div>
+            <div class="quote-card">
+                <div class="quote-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="quote_from">📍 Ciudad de Origen</label>
+                            <input type="text" id="quoteFrom" placeholder="Ej: Miami, FL" data-i18n-placeholder="quote_from_ph">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="quote_to">🏁 Ciudad de Destino</label>
+                            <input type="text" id="quoteTo" placeholder="Ej: Atlanta, GA" data-i18n-placeholder="quote_to_ph">
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Client Satisfaction</span>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="quote_distance">📏 Distancia Aproximada (millas)</label>
+                            <input type="number" id="quoteMiles" placeholder="Ej: 700" min="1" data-i18n-placeholder="quote_miles_ph">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="quote_passengers">👥 Número de Pasajeros</label>
+                            <select id="quotePassengers">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-gold full-width" onclick="calculateQuote()" data-i18n="quote_btn">Calcular Mi Cotización →</button>
+                </div>
+                <div class="quote-result" id="quoteResult" style="display:none;">
+                    <div class="result-content">
+                        <div class="result-icon">🚗</div>
+                        <div class="result-label" data-i18n="result_est">Estimación de precio</div>
+                        <div class="result-price" id="resultPrice">$0</div>
+                        <div class="result-route" id="resultRoute"></div>
+                        <p class="result-note" data-i18n="result_note">*Precio estimado a $2.00 por milla. El precio final puede variar según ruta y condiciones.</p>
+                        <a href="#reservar" class="btn-gold mt-1" data-i18n="result_cta">Reservar Este Raite</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer id="contact">
+    <!-- HOW IT WORKS -->
+    <section class="section how-section" id="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="how_tag">Fácil y Rápido</div>
+                <h2 data-i18n="how_title">¿Cómo funciona?</h2>
+                <p data-i18n="how_subtitle">En 3 simples pasos estás listo para tu viaje.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">📝</div>
+                    <h3 data-i18n="step1_title">Pide Tu Raite</h3>
+                    <p data-i18n="step1_desc">Llena el formulario con tu información, origen, destino y fecha de viaje.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">💬</div>
+                    <h3 data-i18n="step2_title">Confirmamos</h3>
+                    <p data-i18n="step2_desc">Te enviamos la confirmación y detalles de tu viaje por WhatsApp.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🏁</div>
+                    <h3 data-i18n="step3_title">¡Llegamos!</h3>
+                    <p data-i18n="step3_desc">Tu chofer puntual llega a recogerte y te lleva directo a tu destino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="section book-section" id="reservar">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="book_tag">Reserva Tu Raite</div>
+                <h2 data-i18n="book_title">¡Vamos! Reserva Ahora</h2>
+                <p data-i18n="book_subtitle">Completa el formulario y te contactamos por WhatsApp para confirmar.</p>
+            </div>
+            <div class="booking-card">
+                <form id="bookingForm" onsubmit="submitBooking(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="book_name">👤 Nombre Completo</label>
+                            <input type="text" id="bookName" required placeholder="Tu nombre completo" data-i18n-placeholder="book_name_ph">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="book_phone">📱 Número de Teléfono / WhatsApp</label>
+                            <input type="tel" id="bookPhone" required placeholder="(555) 123-4567" data-i18n-placeholder="book_phone_ph">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="book_pickup">📍 Dirección de Recogida</label>
+                            <input type="text" id="bookPickup" required placeholder="Ciudad, Estado de recogida" data-i18n-placeholder="book_pickup_ph">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="book_dropoff">🏁 Dirección de Destino</label>
+                            <input type="text" id="bookDropoff" required placeholder="Ciudad, Estado de destino" data-i18n-placeholder="book_dropoff_ph">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="book_date">📅 Fecha de Viaje</label>
+                            <input type="date" id="bookDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="book_time">🕐 Hora de Recogida</label>
+                            <input type="time" id="bookTime" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="book_pax">👥 Número de Pasajeros</label>
+                            <select id="bookPax">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="book_luggage">🧳 ¿Cuántas Maletas?</label>
+                            <select id="bookLuggage">
+                                <option value="none" data-i18n="luggage_none">Ninguna</option>
+                                <option value="small">1-2</option>
+                                <option value="medium">3-4</option>
+                                <option value="large">5+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label data-i18n="book_notes">📝 Notas Adicionales (opcional)</label>
+                        <textarea id="bookNotes" rows="3" placeholder="Cualquier información adicional sobre tu viaje..." data-i18n-placeholder="book_notes_ph"></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold full-width" data-i18n="book_submit">Reservar Mi Raite por WhatsApp 🚗</button>
+                    <p class="form-disclaimer" data-i18n="book_disclaimer">Al enviar, recibirás un mensaje de confirmación por WhatsApp al número que proporcionaste.</p>
+                </form>
+                <div class="booking-success" id="bookingSuccess" style="display:none;">
+                    <div class="success-icon">🎉</div>
+                    <h3 data-i18n="success_title">¡Reserva Enviada!</h3>
+                    <p data-i18n="success_msg">Te contactaremos pronto por WhatsApp para confirmar tu raite. ¡Gracias por confiar en KONA RAITES!</p>
+                    <a href="tel:7863971861" class="btn-gold mt-1">📞 786-397-1861</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY KONARAITES -->
+    <section class="section why-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-i18n="why_tag">¿Por Qué Nosotros?</div>
+                <h2 data-i18n="why_title">Tu confianza, nuestra prioridad</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🛡️</div>
+                    <h3 data-i18n="why1_title">100% Seguro</h3>
+                    <p data-i18n="why1_desc">Choferes verificados y vehículos en excelentes condiciones para tu tranquilidad.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⏰</div>
+                    <h3 data-i18n="why2_title">Siempre Puntual</h3>
+                    <p data-i18n="why2_desc">Llegamos a tiempo. Tu horario importa y lo respetamos al máximo.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💎</div>
+                    <h3 data-i18n="why3_title">Confort Premium</h3>
+                    <p data-i18n="why3_desc">Viaja cómodo en vehículos espaciosos, limpios y climatizados.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💬</div>
+                    <h3 data-i18n="why4_title">Soporte por WhatsApp</h3>
+                    <p data-i18n="why4_desc">Comunicación directa antes, durante y después de tu viaje.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🗺️</div>
+                    <h3 data-i18n="why5_title">Cualquier Estado</h3>
+                    <p data-i18n="why5_desc">Viajamos a cualquier estado de los Estados Unidos. Sin límites.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💵</div>
+                    <h3 data-i18n="why6_title">Precio Justo</h3>
+                    <p data-i18n="why6_desc">Sin sorpresas. Cotización clara desde el inicio del proceso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
         <div class="footer-container">
             <div class="footer-brand">
-                <a href="#" class="logo">KONARAITES</a>
-                <p>Elevating brands through technology and design.</p>
+                <div class="logo-text footer-logo">KONA<span>RAITES</span></div>
+                <p data-i18n="footer_tagline">Tu Raite. Tu Manera. 🚗</p>
+                <div class="social-links">
+                    <a href="https://wa.me/17863971861" target="_blank" class="social-btn whatsapp">💬 WhatsApp</a>
+                    <a href="tel:7863971861" class="social-btn call">📞 Llamar</a>
+                </div>
             </div>
             <div class="footer-links">
-                <h4>Company</h4>
+                <h4 data-i18n="footer_links">Navegación</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#cotizacion" data-i18n="nav_quote">Cotizar</a></li>
+                    <li><a href="#reservar" data-i18n="nav_book">Reservar</a></li>
+                    <li><a href="#como-funciona" data-i18n="nav_how">¿Cómo Funciona?</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h4>Contact</h4>
-                <p>hello@konaraites.com</p>
-                <p>+1 (555) 123-4567</p>
+                <h4 data-i18n="footer_contact">Contáctanos</h4>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:7863971861">786-397-1861</a>
+                </div>
+                <div class="contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/17863971861" target="_blank">WhatsApp</a>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:konaraites@gmail.com">konaraites@gmail.com</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 KONARAITES. All rights reserved.</p>
+            <p>&copy; 2026 KONA RAITES. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 
