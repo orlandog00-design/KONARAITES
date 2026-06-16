@@ -145,6 +145,7 @@
                         <div class="result-price" id="resultPrice">$0</div>
                         <div class="result-route" id="resultRoute"></div>
                         <p class="result-note" data-i18n="result_note">*Precio estimado a $1.75 por milla. El precio final puede variar según ruta y condiciones.</p>
+                        <p class="result-note" data-i18n="hotel_disclaimer" style="margin-top: 10px; color: var(--accent); font-weight: 500;">*Para viajes mayores a 10 horas, el precio incluye una parada en hotel de 6 horas para descansar y continuar el viaje seguros.</p>
                         <a href="#reservar" class="btn-blue mt-1" data-i18n="result_cta">Reservar Este Raite</a>
                     </div>
                 </div>
@@ -263,6 +264,17 @@
                     </div>
                     <button type="submit" class="btn-blue full-width" data-i18n="book_submit">Reservar Mi Raite por WhatsApp 🚗</button>
                     <p class="form-disclaimer" data-i18n="book_disclaimer">Al enviar, se abrirá WhatsApp con los detalles de tu reserva para confirmación.</p>
+                    
+                    <!-- PAYMENT LOGOS -->
+                    <div class="secure-payments" style="text-align: center; margin-top: 20px;">
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600;" data-i18n="secure_checkout">💳 Pagos Seguros Aceptados</p>
+                        <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; opacity: 0.9; background: var(--bg-surface); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/800px-Mastercard_2019_logo.svg.png" alt="Mastercard" style="height: 22px; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/800px-Visa_Inc._logo.svg.png" alt="Visa" style="height: 16px; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Zelle_logo.svg/800px-Zelle_logo.svg.png" alt="Zelle" style="height: 14px; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/800px-PayPal.svg.png" alt="PayPal" style="height: 18px; object-fit: contain;">
+                        </div>
+                    </div>
                 </form>
                 <div class="booking-success" id="bookingSuccess" style="display:none;">
                     <div class="success-icon">🎉</div>
