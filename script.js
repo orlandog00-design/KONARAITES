@@ -508,8 +508,9 @@ function haversine(lat1, lon1, lat2, lon2) {
 let selectedFrom = null;
 let selectedTo = null;
 
-// ===== AUTOCOMPLETE =====
-function handleAutocomplete(input, dropdownId) {
+let autocompleteTimeout = null;
+
+async function handleAutocomplete(input, dropdownId) {
     const val = input.value.trim().toLowerCase();
     const dropdown = document.getElementById(dropdownId);
 
@@ -519,53 +520,70 @@ function handleAutocomplete(input, dropdownId) {
         return;
     }
 
-    const matches = US_CITIES.filter(c =>
+    // 1. Instantly show local matches
+    const localMatches = US_CITIES.filter(c =>
         c.city.toLowerCase().startsWith(val) ||
         `${c.city}, ${c.state}`.toLowerCase().startsWith(val) ||
         c.city.toLowerCase().includes(val)
-    ).slice(0, 8);
+    ).slice(0, 4);
 
-    if (matches.length === 0) {
-        dropdown.classList.remove('open');
-        return;
-    }
-
-    dropdown.innerHTML = matches.map((c, i) =>
+    let html = localMatches.map((c) =>
         `<div class="autocomplete-item" 
-            onmousedown="selectCity('${input.id}', '${dropdownId}', ${i}, '${c.city.replace(/'/g, "\\'")}', '${c.state}', ${c.lat}, ${c.lon})"
+            onmousedown="selectCity('${input.id}', '${dropdownId}', '${c.city.replace(/'/g, "\\'")}', '${c.state}', ${c.lat}, ${c.lon})"
         >
             ${c.city}<span class="state">${c.state}</span>
         </div>`
     ).join('');
 
-    dropdown.classList.add('open');
+    if (html) {
+        dropdown.innerHTML = html;
+        dropdown.classList.add('open');
+    }
+
+    // 2. Fetch live API for exact addresses
+    clearTimeout(autocompleteTimeout);
+    autocompleteTimeout = setTimeout(async () => {
+        try {
+            const res = await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(val + ", USA")}&limit=4`);
+            if (!res.ok) return;
+            const data = await res.json();
+            
+            if (data.features && data.features.length > 0) {
+                let apiHtml = data.features.map(f => {
+                    const props = f.properties;
+                    const coords = f.geometry.coordinates; // [lon, lat]
+                    let name = props.name || props.city || props.state || '';
+                    if (props.street) name = `${props.housenumber ? props.housenumber + ' ' : ''}${props.street}, ${name}`;
+                    const state = props.state || '';
+                    return `<div class="autocomplete-item api-match" style="border-left: 3px solid var(--blue-light);"
+                        onmousedown="selectCity('${input.id}', '${dropdownId}', '${name.replace(/'/g, "\\'")}', '${state}', ${coords[1]}, ${coords[0]})"
+                    >
+                        ${name} <span class="state">${state} (Exact)</span>
+                    </div>`;
+                }).join('');
+                
+                dropdown.innerHTML = html + apiHtml;
+                dropdown.classList.add('open');
+            }
+        } catch (e) {
+            console.error("Autocomplete API error", e);
+        }
+    }, 400); // 400ms debounce
 }
 
-function selectCity(inputId, dropdownId, index, city, state, lat, lon) {
+function selectCity(inputId, dropdownId, city, state, lat, lon) {
     const input = document.getElementById(inputId);
-    input.value = `${city}, ${state}`;
+    input.value = state ? `${city}, ${state}` : city;
 
     const cityData = { city, state, lat, lon };
 
-    // Quote fields
-    if (inputId === 'quoteFrom') {
-        selectedFrom = cityData;
-    } else if (inputId === 'quoteTo') {
-        selectedTo = cityData;
-    }
+    if (inputId === 'quoteFrom') selectedFrom = cityData;
+    else if (inputId === 'quoteTo') selectedTo = cityData;
 
     document.getElementById(dropdownId).classList.remove('open');
-
-    // Auto-calculate distance if both are selected
-    if ((inputId === 'quoteFrom' || inputId === 'quoteTo') && selectedFrom && selectedTo) {
-        const miles = haversine(selectedFrom.lat, selectedFrom.lon, selectedTo.lat, selectedTo.lon);
-        document.getElementById('quoteMiles').value = miles;
-        calculateQuote();
-    }
 }
 
 function hideDropdown(dropdownId) {
-    // Small delay so onmousedown fires first
     setTimeout(() => {
         const d = document.getElementById(dropdownId);
         if (d) d.classList.remove('open');
@@ -575,41 +593,71 @@ function hideDropdown(dropdownId) {
 // ===== QUOTE CALCULATOR =====
 const RATE_PER_MILE = 1.75;
 
-function calculateQuote() {
+async function calculateQuote() {
     const from = document.getElementById('quoteFrom').value.trim();
     const to = document.getElementById('quoteTo').value.trim();
-    const miles = parseFloat(document.getElementById('quoteMiles').value);
     const pax = parseInt(document.getElementById('quotePassengers').value);
-    const t = translations[currentLang];
-
-    if (!from || !to || !miles || miles <= 0) {
-        const msg = currentLang === 'es'
-            ? 'Por favor selecciona tus ciudades de origen y destino.'
-            : 'Please select your origin and destination cities.';
+    
+    if (!from || !to || !selectedFrom || !selectedTo) {
+        const msg = currentLang === 'es' ? 'Por favor selecciona ubicaciones válidas del menú desplegable.' : 'Please select valid locations from the dropdown.';
         showToast(msg, 'error');
         return;
     }
 
-    let total = miles * RATE_PER_MILE;
-    if (pax >= 5) total *= 1.08; // small group surcharge
-
-    const formatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total);
-    const milesLabel = currentLang === 'es' ? 'millas' : 'miles';
-
-    document.getElementById('resultPrice').textContent = formatted;
-    document.getElementById('resultRoute').textContent = `${from} → ${to} • ${Math.round(miles).toLocaleString()} ${milesLabel}`;
-
+    const resultPrice = document.getElementById('resultPrice');
+    const resultRoute = document.getElementById('resultRoute');
     const resultEl = document.getElementById('quoteResult');
+    
+    resultPrice.textContent = "Calculando...";
+    resultRoute.textContent = currentLang === 'es' ? "Obteniendo ruta real..." : "Getting live route...";
     resultEl.style.display = 'block';
+
+    try {
+        const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${selectedFrom.lon},${selectedFrom.lat};${selectedTo.lon},${selectedTo.lat}?overview=false`);
+        const data = await res.json();
+        
+        if (data.code !== 'Ok' || !data.routes || data.routes.length === 0) {
+            throw new Error("Route not found");
+        }
+        
+        const distanceMeters = data.routes[0].distance;
+        const miles = distanceMeters / 1609.344;
+        
+        let total = miles * RATE_PER_MILE;
+        if (pax >= 5) total *= 1.08;
+        
+        const formatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total);
+        const milesLabel = currentLang === 'es' ? 'millas' : 'miles';
+        
+        resultPrice.textContent = formatted;
+        resultRoute.textContent = `${from} → ${to} • ${Math.round(miles).toLocaleString()} ${milesLabel}`;
+        
+    } catch(e) {
+        console.error("OSRM Routing Error:", e);
+        // Fallback to straight-line if API fails
+        const miles = haversine(selectedFrom.lat, selectedFrom.lon, selectedTo.lat, selectedTo.lon);
+        let total = miles * RATE_PER_MILE;
+        if (pax >= 5) total *= 1.08;
+        const formatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total);
+        const milesLabel = currentLang === 'es' ? 'millas' : 'miles';
+        resultPrice.textContent = formatted;
+        resultRoute.textContent = `${from} → ${to} • ${Math.round(miles).toLocaleString()} ${milesLabel} (Est)`;
+    }
 
     setTimeout(() => {
         resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
 }
 
-function recalcIfReady() {
-    if (selectedFrom && selectedTo && document.getElementById('quoteMiles').value) {
-        calculateQuote();
+function transferQuoteToBooking() {
+    const from = document.getElementById('quoteFrom').value.trim();
+    const to = document.getElementById('quoteTo').value.trim();
+    const pax = document.getElementById('quotePassengers').value;
+    
+    if (from && to) {
+        document.getElementById('bookPickup').value = from;
+        document.getElementById('bookDropoff').value = to;
+        document.getElementById('bookPax').value = pax;
     }
 }
 

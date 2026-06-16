@@ -96,13 +96,13 @@
                 <p data-i18n="quote_subtitle">Ingresa tu origen y destino para obtener una estimación al instante.</p>
             </div>
             <div class="quote-card reveal">
-                <div class="quote-form">
+                 <form class="quote-form" id="quoteForm" onsubmit="event.preventDefault(); calculateQuote();">
                     <div class="form-row">
                         <div class="form-group">
                             <label data-i18n="quote_from">📍 Ciudad de Origen</label>
                             <div class="autocomplete-wrapper">
-                                <input type="text" id="quoteFrom" autocomplete="off"
-                                    placeholder="Ej: Miami, FL"
+                                <input type="text" id="quoteFrom" required autocomplete="off" 
+                                    placeholder="Ciudad, Estado" 
                                     data-i18n-placeholder="quote_from_ph"
                                     oninput="handleAutocomplete(this, 'quoteFromList')"
                                     onblur="hideDropdown('quoteFromList')">
@@ -112,8 +112,8 @@
                         <div class="form-group">
                             <label data-i18n="quote_to">🏁 Ciudad de Destino</label>
                             <div class="autocomplete-wrapper">
-                                <input type="text" id="quoteTo" autocomplete="off"
-                                    placeholder="Ej: Atlanta, GA"
+                                <input type="text" id="quoteTo" required autocomplete="off" 
+                                    placeholder="Ciudad, Estado" 
                                     data-i18n-placeholder="quote_to_ph"
                                     oninput="handleAutocomplete(this, 'quoteToList')"
                                     onblur="hideDropdown('quoteToList')">
@@ -123,22 +123,17 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label data-i18n="quote_distance">📏 <span data-i18n="quote_distance_label">Distancia Calculada (millas)</span></label>
-                            <input type="number" id="quoteMiles" placeholder="Auto-calculado al seleccionar ciudades" data-i18n-placeholder="quote_miles_ph" readonly class="readonly-field">
-                        </div>
-                        <div class="form-group">
-                            <label data-i18n="quote_passengers">👥 Número de Pasajeros</label>
-                            <select id="quotePassengers" onchange="recalcIfReady()">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5+</option>
+                            <label data-i18n="quote_pax">👥 Número de Pasajeros</label>
+                            <select id="quotePassengers" onchange="if(selectedFrom && selectedTo) calculateQuote();">
+                                <option value="1">1</option><option value="2">2</option>
+                                <option value="3">3</option><option value="4">4</option><option value="5">5+</option>
                             </select>
                         </div>
+                        <div class="form-group" style="display:flex; align-items:flex-end;">
+                            <button class="btn-blue full-width" onclick="calculateQuote()" data-i18n="quote_btn">Calcular Mi Cotización →</button>
+                        </div>
                     </div>
-                    <button class="btn-blue full-width" onclick="calculateQuote()" data-i18n="quote_btn">Calcular Mi Cotización →</button>
-                </div>
+                </form>
                 <div class="quote-result" id="quoteResult" style="display:none;">
                     <div class="result-content">
                         <div class="result-icon">🚗</div>
@@ -147,7 +142,7 @@
                         <div class="result-route" id="resultRoute"></div>
                         <p class="result-note" data-i18n="result_note">*Precio estimado a $1.75 por milla. El precio final puede variar según ruta y condiciones.</p>
                         <p class="result-note" data-i18n="hotel_disclaimer" style="margin-top: 10px; color: var(--accent); font-weight: 500;">*Para viajes mayores a 10 horas, el precio incluye una parada en hotel de 6 horas para descansar y continuar el viaje seguros.</p>
-                        <a href="#reservar" class="btn-blue mt-1" data-i18n="result_cta">Reservar Este Raite</a>
+                        <a href="#reservar" class="btn-blue mt-1" data-i18n="result_cta" onclick="transferQuoteToBooking()">Reservar Este Raite</a>
                     </div>
                 </div>
             </div>
