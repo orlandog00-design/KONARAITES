@@ -1,6 +1,6 @@
 // ===== US CITIES WITH COORDINATES (500+) =====
 const US_CITIES = [
-    // â”€â”€ FLORIDA (comprehensive) â”€â”€
+    // ── FLORIDA (comprehensive) ──
     { city: "Miami", state: "FL", lat: 25.7617, lon: -80.1918 },
     { city: "Miami Beach", state: "FL", lat: 25.7907, lon: -80.1300 },
     { city: "Miami Gardens", state: "FL", lat: 25.9420, lon: -80.2456 },
@@ -137,7 +137,7 @@ const US_CITIES = [
     { city: "Chipley", state: "FL", lat: 30.7838, lon: -85.5363 },
     { city: "Monticello", state: "FL", lat: 30.5449, lon: -83.8710 },
     { city: "Starke", state: "FL", lat: 29.9441, lon: -82.1096 },
-    // â”€â”€ GEORGIA â”€â”€
+    // ── GEORGIA ──
     { city: "Atlanta", state: "GA", lat: 33.7490, lon: -84.3880 },
     { city: "Augusta", state: "GA", lat: 33.4735, lon: -82.0105 },
     { city: "Columbus", state: "GA", lat: 32.4610, lon: -84.9877 },
@@ -154,7 +154,7 @@ const US_CITIES = [
     { city: "Gainesville", state: "GA", lat: 34.2979, lon: -83.8241 },
     { city: "Dalton", state: "GA", lat: 34.7698, lon: -84.9702 },
     { city: "Statesboro", state: "GA", lat: 32.4488, lon: -81.7832 },
-    // â”€â”€ ALABAMA â”€â”€
+    // ── ALABAMA ──
     { city: "Birmingham", state: "AL", lat: 33.5186, lon: -86.8104 },
     { city: "Montgomery", state: "AL", lat: 32.3669, lon: -86.3006 },
     { city: "Huntsville", state: "AL", lat: 34.7304, lon: -86.5861 },
@@ -171,7 +171,7 @@ const US_CITIES = [
     { city: "Foley", state: "AL", lat: 30.4063, lon: -87.6836 },
     { city: "Daphne", state: "AL", lat: 30.6035, lon: -87.9036 },
     { city: "Fairhope", state: "AL", lat: 30.5227, lon: -87.9036 },
-    // â”€â”€ MISSISSIPPI â”€â”€
+    // ── MISSISSIPPI ──
     { city: "Jackson", state: "MS", lat: 32.2988, lon: -90.1848 },
     { city: "Gulfport", state: "MS", lat: 30.3674, lon: -89.0928 },
     { city: "Biloxi", state: "MS", lat: 30.3960, lon: -88.8853 },
@@ -181,7 +181,7 @@ const US_CITIES = [
     { city: "Ocean Springs", state: "MS", lat: 30.4110, lon: -88.8267 },
     { city: "Meridian", state: "MS", lat: 32.3643, lon: -88.7037 },
     { city: "Tupelo", state: "MS", lat: 34.2576, lon: -88.7034 },
-    // â”€â”€ LOUISIANA â”€â”€
+    // ── LOUISIANA ──
     { city: "New Orleans", state: "LA", lat: 29.9511, lon: -90.0715 },
     { city: "Baton Rouge", state: "LA", lat: 30.4515, lon: -91.1871 },
     { city: "Shreveport", state: "LA", lat: 32.5252, lon: -93.7502 },
@@ -191,7 +191,7 @@ const US_CITIES = [
     { city: "Monroe", state: "LA", lat: 32.5093, lon: -92.1193 },
     { city: "Metairie", state: "LA", lat: 29.9824, lon: -90.1788 },
     { city: "Slidell", state: "LA", lat: 30.2752, lon: -89.7812 },
-    // â”€â”€ TEXAS â”€â”€
+    // ── TEXAS ──
     { city: "Houston", state: "TX", lat: 29.7604, lon: -95.3698 },
     { city: "San Antonio", state: "TX", lat: 29.4241, lon: -98.4936 },
     { city: "Dallas", state: "TX", lat: 32.7767, lon: -96.7970 },
@@ -240,7 +240,7 @@ const US_CITIES = [
     { city: "Galveston", state: "TX", lat: 29.3013, lon: -94.7977 },
     { city: "Baytown", state: "TX", lat: 29.7355, lon: -94.9774 },
     { city: "Port Arthur", state: "TX", lat: 29.8849, lon: -93.9399 },
-    // â”€â”€ TENNESSEE â”€â”€
+    // ── TENNESSEE ──
     { city: "Nashville", state: "TN", lat: 36.1627, lon: -86.7816 },
     { city: "Memphis", state: "TN", lat: 35.1495, lon: -90.0490 },
     { city: "Knoxville", state: "TN", lat: 35.9606, lon: -83.9207 },
@@ -250,7 +250,7 @@ const US_CITIES = [
     { city: "Jackson", state: "TN", lat: 35.6145, lon: -88.8139 },
     { city: "Johnson City", state: "TN", lat: 36.3134, lon: -82.3535 },
     { city: "Kingsport", state: "TN", lat: 36.5484, lon: -82.5618 },
-    // â”€â”€ NORTH CAROLINA â”€â”€
+    // ── NORTH CAROLINA ──
     { city: "Charlotte", state: "NC", lat: 35.2271, lon: -80.8431 },
     { city: "Raleigh", state: "NC", lat: 35.7796, lon: -78.6382 },
     { city: "Greensboro", state: "NC", lat: 36.0726, lon: -79.7920 },
@@ -262,7 +262,7 @@ const US_CITIES = [
     { city: "High Point", state: "NC", lat: 35.9557, lon: -80.0053 },
     { city: "Asheville", state: "NC", lat: 35.5951, lon: -82.5515 },
     { city: "Concord", state: "NC", lat: 35.4088, lon: -80.5796 },
-    // â”€â”€ SOUTH CAROLINA â”€â”€
+    // ── SOUTH CAROLINA ──
     { city: "Columbia", state: "SC", lat: 34.0007, lon: -81.0348 },
     { city: "Charleston", state: "SC", lat: 32.7765, lon: -79.9311 },
     { city: "North Charleston", state: "SC", lat: 32.8546, lon: -79.9748 },
@@ -271,7 +271,7 @@ const US_CITIES = [
     { city: "Myrtle Beach", state: "SC", lat: 33.6891, lon: -78.8867 },
     { city: "Hilton Head Island", state: "SC", lat: 32.2163, lon: -80.7526 },
     { city: "Spartanburg", state: "SC", lat: 34.9496, lon: -81.9321 },
-    // â”€â”€ VIRGINIA & DC â”€â”€
+    // ── VIRGINIA & DC ──
     { city: "Virginia Beach", state: "VA", lat: 36.8529, lon: -75.9780 },
     { city: "Norfolk", state: "VA", lat: 36.8508, lon: -76.2859 },
     { city: "Chesapeake", state: "VA", lat: 36.7682, lon: -76.2875 },
@@ -284,39 +284,39 @@ const US_CITIES = [
     { city: "Baltimore", state: "MD", lat: 39.2904, lon: -76.6122 },
     { city: "Annapolis", state: "MD", lat: 38.9784, lon: -76.4922 },
     { city: "Frederick", state: "MD", lat: 39.4143, lon: -77.4105 },
-    // â”€â”€ ARKANSAS â”€â”€
+    // ── ARKANSAS ──
     { city: "Little Rock", state: "AR", lat: 34.7465, lon: -92.2896 },
     { city: "Fort Smith", state: "AR", lat: 35.3859, lon: -94.3985 },
     { city: "Fayetteville", state: "AR", lat: 36.0626, lon: -94.1574 },
     { city: "Springdale", state: "AR", lat: 36.1867, lon: -94.1288 },
     { city: "Jonesboro", state: "AR", lat: 35.8423, lon: -90.7043 },
-    // â”€â”€ OKLAHOMA â”€â”€
+    // ── OKLAHOMA ──
     { city: "Oklahoma City", state: "OK", lat: 35.4676, lon: -97.5164 },
     { city: "Tulsa", state: "OK", lat: 36.1540, lon: -95.9928 },
     { city: "Norman", state: "OK", lat: 35.2226, lon: -97.4395 },
     { city: "Broken Arrow", state: "OK", lat: 36.0526, lon: -95.7908 },
     { city: "Edmond", state: "OK", lat: 35.6529, lon: -97.4781 },
     { city: "Lawton", state: "OK", lat: 34.6036, lon: -98.3959 },
-    // â”€â”€ NEW YORK â”€â”€
+    // ── NEW YORK ──
     { city: "New York", state: "NY", lat: 40.7128, lon: -74.0060 },
     { city: "Buffalo", state: "NY", lat: 42.8864, lon: -78.8784 },
     { city: "Rochester", state: "NY", lat: 43.1566, lon: -77.6088 },
     { city: "Yonkers", state: "NY", lat: 40.9312, lon: -73.8988 },
     { city: "Syracuse", state: "NY", lat: 43.0481, lon: -76.1474 },
     { city: "Albany", state: "NY", lat: 42.6526, lon: -73.7562 },
-    // â”€â”€ NEW JERSEY â”€â”€
+    // ── NEW JERSEY ──
     { city: "Newark", state: "NJ", lat: 40.7357, lon: -74.1724 },
     { city: "Jersey City", state: "NJ", lat: 40.7178, lon: -74.0431 },
     { city: "Paterson", state: "NJ", lat: 40.9168, lon: -74.1718 },
     { city: "Trenton", state: "NJ", lat: 40.2171, lon: -74.7429 },
     { city: "Atlantic City", state: "NJ", lat: 39.3643, lon: -74.4229 },
-    // â”€â”€ PENNSYLVANIA â”€â”€
+    // ── PENNSYLVANIA ──
     { city: "Philadelphia", state: "PA", lat: 39.9526, lon: -75.1652 },
     { city: "Pittsburgh", state: "PA", lat: 40.4406, lon: -79.9959 },
     { city: "Allentown", state: "PA", lat: 40.6084, lon: -75.4902 },
     { city: "Erie", state: "PA", lat: 42.1292, lon: -80.0851 },
     { city: "Scranton", state: "PA", lat: 41.4090, lon: -75.6624 },
-    // â”€â”€ OHIO â”€â”€
+    // ── OHIO ──
     { city: "Columbus", state: "OH", lat: 39.9612, lon: -82.9988 },
     { city: "Cleveland", state: "OH", lat: 41.4993, lon: -81.6944 },
     { city: "Cincinnati", state: "OH", lat: 39.1031, lon: -84.5120 },
@@ -324,7 +324,7 @@ const US_CITIES = [
     { city: "Akron", state: "OH", lat: 41.0814, lon: -81.5190 },
     { city: "Dayton", state: "OH", lat: 39.7589, lon: -84.1916 },
     { city: "Youngstown", state: "OH", lat: 41.0998, lon: -80.6495 },
-    // â”€â”€ MICHIGAN â”€â”€
+    // ── MICHIGAN ──
     { city: "Detroit", state: "MI", lat: 42.3314, lon: -83.0458 },
     { city: "Grand Rapids", state: "MI", lat: 42.9634, lon: -85.6681 },
     { city: "Lansing", state: "MI", lat: 42.7325, lon: -84.5555 },
@@ -332,33 +332,33 @@ const US_CITIES = [
     { city: "Ann Arbor", state: "MI", lat: 42.2808, lon: -83.7430 },
     { city: "Dearborn", state: "MI", lat: 42.3223, lon: -83.1763 },
     { city: "Kalamazoo", state: "MI", lat: 42.2917, lon: -85.5872 },
-    // â”€â”€ ILLINOIS â”€â”€
+    // ── ILLINOIS ──
     { city: "Chicago", state: "IL", lat: 41.8781, lon: -87.6298 },
     { city: "Aurora", state: "IL", lat: 41.7606, lon: -88.3201 },
     { city: "Joliet", state: "IL", lat: 41.5250, lon: -88.0817 },
     { city: "Naperville", state: "IL", lat: 41.7508, lon: -88.1535 },
     { city: "Rockford", state: "IL", lat: 42.2711, lon: -89.0940 },
     { city: "Springfield", state: "IL", lat: 39.7817, lon: -89.6501 },
-    // â”€â”€ INDIANA â”€â”€
+    // ── INDIANA ──
     { city: "Indianapolis", state: "IN", lat: 39.7684, lon: -86.1581 },
     { city: "Fort Wayne", state: "IN", lat: 41.0793, lon: -85.1394 },
     { city: "Evansville", state: "IN", lat: 37.9716, lon: -87.5711 },
     { city: "South Bend", state: "IN", lat: 41.6764, lon: -86.2520 },
-    // â”€â”€ KENTUCKY â”€â”€
+    // ── KENTUCKY ──
     { city: "Louisville", state: "KY", lat: 38.2527, lon: -85.7585 },
     { city: "Lexington", state: "KY", lat: 38.0406, lon: -84.5037 },
     { city: "Bowling Green", state: "KY", lat: 36.9685, lon: -86.4808 },
-    // â”€â”€ WISCONSIN â”€â”€
+    // ── WISCONSIN ──
     { city: "Milwaukee", state: "WI", lat: 43.0389, lon: -87.9065 },
     { city: "Madison", state: "WI", lat: 43.0731, lon: -89.4012 },
     { city: "Green Bay", state: "WI", lat: 44.5133, lon: -88.0133 },
     { city: "Kenosha", state: "WI", lat: 42.5847, lon: -87.8212 },
-    // â”€â”€ MINNESOTA â”€â”€
+    // ── MINNESOTA ──
     { city: "Minneapolis", state: "MN", lat: 44.9778, lon: -93.2650 },
     { city: "Saint Paul", state: "MN", lat: 44.9537, lon: -93.0900 },
     { city: "Rochester", state: "MN", lat: 44.0121, lon: -92.4802 },
     { city: "Duluth", state: "MN", lat: 46.7867, lon: -92.1005 },
-    // â”€â”€ IOWA / MISSOURI / KANSAS / NEBRASKA â”€â”€
+    // ── IOWA / MISSOURI / KANSAS / NEBRASKA ──
     { city: "Des Moines", state: "IA", lat: 41.5868, lon: -93.6250 },
     { city: "Cedar Rapids", state: "IA", lat: 41.9779, lon: -91.6656 },
     { city: "Kansas City", state: "MO", lat: 39.0997, lon: -94.5786 },
@@ -372,7 +372,7 @@ const US_CITIES = [
     { city: "Sioux Falls", state: "SD", lat: 43.5446, lon: -96.7311 },
     { city: "Fargo", state: "ND", lat: 46.8772, lon: -96.7898 },
     { city: "Bismarck", state: "ND", lat: 46.8083, lon: -100.7837 },
-    // â”€â”€ COLORADO â”€â”€
+    // ── COLORADO ──
     { city: "Denver", state: "CO", lat: 39.7392, lon: -104.9903 },
     { city: "Colorado Springs", state: "CO", lat: 38.8339, lon: -104.8214 },
     { city: "Aurora", state: "CO", lat: 39.7294, lon: -104.8319 },
@@ -380,13 +380,13 @@ const US_CITIES = [
     { city: "Boulder", state: "CO", lat: 40.0150, lon: -105.2705 },
     { city: "Pueblo", state: "CO", lat: 38.2544, lon: -104.6091 },
     { city: "Grand Junction", state: "CO", lat: 39.0639, lon: -108.5506 },
-    // â”€â”€ NEW MEXICO â”€â”€
+    // ── NEW MEXICO ──
     { city: "Albuquerque", state: "NM", lat: 35.0844, lon: -106.6504 },
     { city: "Las Cruces", state: "NM", lat: 32.3199, lon: -106.7637 },
     { city: "Rio Rancho", state: "NM", lat: 35.2328, lon: -106.6630 },
     { city: "Santa Fe", state: "NM", lat: 35.6870, lon: -105.9378 },
     { city: "Roswell", state: "NM", lat: 33.3943, lon: -104.5230 },
-    // â”€â”€ ARIZONA â”€â”€
+    // ── ARIZONA ──
     { city: "Phoenix", state: "AZ", lat: 33.4484, lon: -112.0740 },
     { city: "Tucson", state: "AZ", lat: 32.2226, lon: -110.9747 },
     { city: "Mesa", state: "AZ", lat: 33.4152, lon: -111.8315 },
@@ -401,7 +401,7 @@ const US_CITIES = [
     { city: "Flagstaff", state: "AZ", lat: 35.1983, lon: -111.6513 },
     { city: "Sedona", state: "AZ", lat: 34.8697, lon: -111.7609 },
     { city: "Lake Havasu City", state: "AZ", lat: 34.4839, lon: -114.3224 },
-    // â”€â”€ UTAH / NEVADA â”€â”€
+    // ── UTAH / NEVADA ──
     { city: "Salt Lake City", state: "UT", lat: 40.7608, lon: -111.8910 },
     { city: "Provo", state: "UT", lat: 40.2338, lon: -111.6585 },
     { city: "Ogden", state: "UT", lat: 41.2230, lon: -111.9738 },
@@ -410,7 +410,7 @@ const US_CITIES = [
     { city: "Henderson", state: "NV", lat: 36.0395, lon: -114.9817 },
     { city: "Reno", state: "NV", lat: 39.5296, lon: -119.8138 },
     { city: "North Las Vegas", state: "NV", lat: 36.1989, lon: -115.1175 },
-    // â”€â”€ CALIFORNIA â”€â”€
+    // ── CALIFORNIA ──
     { city: "Los Angeles", state: "CA", lat: 34.0522, lon: -118.2437 },
     { city: "San Diego", state: "CA", lat: 32.7157, lon: -117.1611 },
     { city: "San Jose", state: "CA", lat: 37.3382, lon: -121.8863 },
@@ -453,7 +453,7 @@ const US_CITIES = [
     { city: "Visalia", state: "CA", lat: 36.3302, lon: -119.2921 },
     { city: "Concord", state: "CA", lat: 37.9780, lon: -122.0311 },
     { city: "Roseville", state: "CA", lat: 38.7521, lon: -121.2880 },
-    // â”€â”€ PACIFIC NORTHWEST â”€â”€
+    // ── PACIFIC NORTHWEST ──
     { city: "Portland", state: "OR", lat: 45.5051, lon: -122.6750 },
     { city: "Salem", state: "OR", lat: 44.9429, lon: -123.0351 },
     { city: "Eugene", state: "OR", lat: 44.0521, lon: -123.0868 },
@@ -470,7 +470,7 @@ const US_CITIES = [
     { city: "Nampa", state: "ID", lat: 43.5407, lon: -116.5635 },
     { city: "Meridian", state: "ID", lat: 43.6121, lon: -116.3915 },
     { city: "Idaho Falls", state: "ID", lat: 43.4917, lon: -112.0339 },
-    // â”€â”€ NEW ENGLAND â”€â”€
+    // ── NEW ENGLAND ──
     { city: "Boston", state: "MA", lat: 42.3601, lon: -71.0589 },
     { city: "Worcester", state: "MA", lat: 42.2626, lon: -71.8023 },
     { city: "Springfield", state: "MA", lat: 42.1015, lon: -72.5898 },
@@ -482,7 +482,7 @@ const US_CITIES = [
     { city: "Manchester", state: "NH", lat: 42.9956, lon: -71.4548 },
     { city: "Portland", state: "ME", lat: 43.6591, lon: -70.2568 },
     { city: "Burlington", state: "VT", lat: 44.4759, lon: -73.2121 },
-    // â”€â”€ ALASKA & HAWAII â”€â”€
+    // ── ALASKA & HAWAII ──
     { city: "Anchorage", state: "AK", lat: 61.2181, lon: -149.9003 },
     { city: "Honolulu", state: "HI", lat: 21.3069, lon: -157.8583 },
     { city: "Hilo", state: "HI", lat: 19.7297, lon: -155.0900 },
@@ -491,6 +491,7 @@ const US_CITIES = [
     { city: "Charleston", state: "WV", lat: 38.3498, lon: -81.6326 },
     { city: "Morgantown", state: "WV", lat: 39.6295, lon: -79.9559 },
 ];
+
 
 // ===== HAVERSINE DISTANCE FORMULA (miles) =====
 function haversine(lat1, lon1, lat2, lon2) {
@@ -596,7 +597,7 @@ function calculateQuote() {
     const milesLabel = currentLang === 'es' ? 'millas' : 'miles';
 
     document.getElementById('resultPrice').textContent = formatted;
-    document.getElementById('resultRoute').textContent = `${from} â†’ ${to} â€¢ ${Math.round(miles).toLocaleString()} ${milesLabel}`;
+    document.getElementById('resultRoute').textContent = `${from} → ${to} • ${Math.round(miles).toLocaleString()} ${milesLabel}`;
 
     const resultEl = document.getElementById('quoteResult');
     resultEl.style.display = 'block';
@@ -628,8 +629,8 @@ function submitBooking(e) {
 
     const waNumber = '17863971861';
     const msg = currentLang === 'es'
-        ? `ðŸš— *Nueva Reserva â€” KONA RAITES*\n\nðŸ‘¤ *Nombre:* ${name}\nðŸ“± *TelÃ©fono:* ${phone}\nðŸ“ *Recogida:* ${pickup}\nðŸ *Destino:* ${dropoff}\nðŸ“… *Fecha:* ${date}\nðŸ• *Hora:* ${time}\nðŸ‘¥ *Pasajeros:* ${pax}\nðŸ§³ *Maletas:* ${luggage}\nðŸ“ *Notas:* ${notes || 'N/A'}`
-        : `ðŸš— *New Booking â€” KONA RAITES*\n\nðŸ‘¤ *Name:* ${name}\nðŸ“± *Phone:* ${phone}\nðŸ“ *Pickup:* ${pickup}\nðŸ *Destination:* ${dropoff}\nðŸ“… *Date:* ${date}\nðŸ• *Time:* ${time}\nðŸ‘¥ *Passengers:* ${pax}\nðŸ§³ *Bags:* ${luggage}\nðŸ“ *Notes:* ${notes || 'N/A'}`;
+        ? `🚗 *Nueva Reserva — KONA RAITES*\n\n👤 *Nombre:* ${name}\n📱 *Teléfono:* ${phone}\n📍 *Recogida:* ${pickup}\n🏁 *Destino:* ${dropoff}\n📅 *Fecha:* ${date}\n🕐 *Hora:* ${time}\n👥 *Pasajeros:* ${pax}\n🧳 *Maletas:* ${luggage}\n📝 *Notas:* ${notes || 'N/A'}`
+        : `🚗 *New Booking — KONA RAITES*\n\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n📍 *Pickup:* ${pickup}\n🏁 *Destination:* ${dropoff}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}\n👥 *Passengers:* ${pax}\n🧳 *Bags:* ${luggage}\n📝 *Notes:* ${notes || 'N/A'}`;
 
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
 
@@ -640,62 +641,62 @@ function submitBooking(e) {
 // ===== TRANSLATIONS =====
 const translations = {
     es: {
-        nav_quote: "Cotizar", nav_book: "Reservar", nav_how: "Â¿CÃ³mo Funciona?", nav_contact: "Contacto",
-        hero_badge: "ðŸš— Viajes de Estado a Estado",
+        nav_quote: "Cotizar", nav_book: "Reservar", nav_how: "¿Cómo Funciona?", nav_contact: "Contacto",
+        hero_badge: "🚗 Viajes de Estado a Estado",
         hero_title_1: "Tu Raite.", hero_title_2: "Tu Manera.",
-        hero_subtitle: "Viajes cÃ³modos, seguros y puntuales a cualquier estado del paÃ­s. Reserva en lÃ­nea y recibe tu confirmaciÃ³n por WhatsApp.",
-        hero_cta1: "Obtener CotizaciÃ³n", hero_cta2: "Reservar Mi Raite",
-        trust_1: "100% Seguro", trust_2: "ConfirmaciÃ³n por WhatsApp", trust_3: "Precios Claros",
-        phone_banner_text: "Â¿Prefieres llamar? Estamos disponibles:",
-        quote_tag: "CotizaciÃ³n Gratis", quote_title: "Â¿CuÃ¡nto costarÃ¡ tu raite?",
-        quote_subtitle: "Selecciona origen y destino â€” calculamos la distancia y el precio al instante.",
-        quote_from: "ðŸ“ Ciudad de Origen", quote_from_ph: "Ej: Miami, FL",
-        quote_to: "ðŸ Ciudad de Destino", quote_to_ph: "Ej: Atlanta, GA",
+        hero_subtitle: "Viajes cómodos, seguros y puntuales a cualquier estado del país. Reserva en línea y recibe tu confirmación por WhatsApp.",
+        hero_cta1: "Obtener Cotización", hero_cta2: "Reservar Mi Raite",
+        trust_1: "100% Seguro", trust_2: "Confirmación por WhatsApp", trust_3: "Precios Claros",
+        phone_banner_text: "¿Prefieres llamar? Estamos disponibles:",
+        quote_tag: "Cotización Gratis", quote_title: "¿Cuánto costará tu raite?",
+        quote_subtitle: "Selecciona origen y destino — calculamos la distancia y el precio al instante.",
+        quote_from: "📍 Ciudad de Origen", quote_from_ph: "Ej: Miami, FL",
+        quote_to: "🏁 Ciudad de Destino", quote_to_ph: "Ej: Atlanta, GA",
         quote_distance_label: "Distancia Calculada (millas)", quote_miles_ph: "Auto-calculado al seleccionar ciudades",
-        quote_passengers: "ðŸ‘¥ NÃºmero de Pasajeros", quote_btn: "Calcular Mi CotizaciÃ³n â†’",
-        result_est: "EstimaciÃ³n de precio",
-        result_note: "*Precio estimado a $1.75 por milla. El precio final puede variar segÃºn ruta y condiciones.",
+        quote_passengers: "👥 Número de Pasajeros", quote_btn: "Calcular Mi Cotización →",
+        result_est: "Estimación de precio",
+        result_note: "*Precio estimado a $1.75 por milla. El precio final puede variar según ruta y condiciones.",
         result_cta: "Reservar Este Raite",
-        how_tag: "FÃ¡cil y RÃ¡pido", how_title: "Â¿CÃ³mo funciona?", how_subtitle: "En 3 simples pasos estÃ¡s listo para tu viaje.",
-        step1_title: "Pide Tu Raite", step1_desc: "Llena el formulario con tu informaciÃ³n, origen, destino y fecha de viaje.",
-        step2_title: "Confirmamos", step2_desc: "Te enviamos la confirmaciÃ³n y detalles de tu viaje por WhatsApp.",
-        step3_title: "Â¡Llegamos!", step3_desc: "Tu chofer puntual llega a recogerte y te lleva directo a tu destino.",
-        book_tag: "Reserva Tu Raite", book_title: "Â¡Vamos! Reserva Ahora",
+        how_tag: "Fácil y Rápido", how_title: "¿Cómo funciona?", how_subtitle: "En 3 simples pasos estás listo para tu viaje.",
+        step1_title: "Pide Tu Raite", step1_desc: "Llena el formulario con tu información, origen, destino y fecha de viaje.",
+        step2_title: "Confirmamos", step2_desc: "Te enviamos la confirmación y detalles de tu viaje por WhatsApp.",
+        step3_title: "¡Llegamos!", step3_desc: "Tu chofer puntual llega a recogerte y te lleva directo a tu destino.",
+        book_tag: "Reserva Tu Raite", book_title: "¡Vamos! Reserva Ahora",
         book_subtitle: "Completa el formulario y te contactamos por WhatsApp para confirmar.",
-        book_name: "ðŸ‘¤ Nombre Completo", book_name_ph: "Tu nombre completo",
-        book_phone: "ðŸ“± NÃºmero de TelÃ©fono / WhatsApp", book_phone_ph: "(555) 123-4567",
-        book_pickup: "ðŸ“ DirecciÃ³n de Recogida", book_pickup_ph: "Ciudad, Estado de recogida",
-        book_dropoff: "ðŸ DirecciÃ³n de Destino", book_dropoff_ph: "Ciudad, Estado de destino",
-        book_date: "ðŸ“… Fecha de Viaje", book_time: "ðŸ• Hora de Recogida",
-        book_pax: "ðŸ‘¥ NÃºmero de Pasajeros", book_luggage: "ðŸ§³ Â¿CuÃ¡ntas Maletas?", luggage_none: "Ninguna",
-        book_notes: "ðŸ“ Notas Adicionales (opcional)", book_notes_ph: "Cualquier informaciÃ³n adicional sobre tu viaje...",
-        book_submit: "Reservar Mi Raite por WhatsApp ðŸš—",
-        book_disclaimer: "Al enviar, se abrirÃ¡ WhatsApp con los detalles de tu reserva para confirmaciÃ³n.",
-        success_title: "Â¡Reserva Enviada!", success_msg: "Te contactaremos pronto por WhatsApp para confirmar tu raite. Â¡Gracias por confiar en KONA RAITES!",
-        why_tag: "Â¿Por QuÃ© Nosotros?", why_title: "Tu confianza, nuestra prioridad",
-        why1_title: "100% Seguro", why1_desc: "Choferes verificados y vehÃ­culos en excelentes condiciones para tu tranquilidad.",
-        why2_title: "Siempre Puntual", why2_desc: "Llegamos a tiempo. Tu horario importa y lo respetamos al mÃ¡ximo.",
-        why3_title: "Confort Premium", why3_desc: "Viaja cÃ³modo en vehÃ­culos espaciosos, limpios y climatizados.",
-        why4_title: "Soporte por WhatsApp", why4_desc: "ComunicaciÃ³n directa antes, durante y despuÃ©s de tu viaje.",
-        why5_title: "Cualquier Estado", why5_desc: "Viajamos a cualquier estado de los Estados Unidos. Sin lÃ­mites.",
-        why6_title: "Precio Justo", why6_desc: "Sin sorpresas. CotizaciÃ³n clara desde el inicio del proceso.",
-        footer_tagline: "Tu Raite. Tu Manera. ðŸš—", footer_links: "NavegaciÃ³n", footer_contact: "ContÃ¡ctanos",
+        book_name: "👤 Nombre Completo", book_name_ph: "Tu nombre completo",
+        book_phone: "📱 Número de Teléfono / WhatsApp", book_phone_ph: "(555) 123-4567",
+        book_pickup: "📍 Dirección de Recogida", book_pickup_ph: "Ciudad, Estado de recogida",
+        book_dropoff: "🏁 Dirección de Destino", book_dropoff_ph: "Ciudad, Estado de destino",
+        book_date: "📅 Fecha de Viaje", book_time: "🕐 Hora de Recogida",
+        book_pax: "👥 Número de Pasajeros", book_luggage: "🧳 ¿Cuántas Maletas?", luggage_none: "Ninguna",
+        book_notes: "📝 Notas Adicionales (opcional)", book_notes_ph: "Cualquier información adicional sobre tu viaje...",
+        book_submit: "Reservar Mi Raite por WhatsApp 🚗",
+        book_disclaimer: "Al enviar, se abrirá WhatsApp con los detalles de tu reserva para confirmación.",
+        success_title: "¡Reserva Enviada!", success_msg: "Te contactaremos pronto por WhatsApp para confirmar tu raite. ¡Gracias por confiar en KONA RAITES!",
+        why_tag: "¿Por Qué Nosotros?", why_title: "Tu confianza, nuestra prioridad",
+        why1_title: "100% Seguro", why1_desc: "Choferes verificados y vehículos en excelentes condiciones para tu tranquilidad.",
+        why2_title: "Siempre Puntual", why2_desc: "Llegamos a tiempo. Tu horario importa y lo respetamos al máximo.",
+        why3_title: "Confort Premium", why3_desc: "Viaja cómodo en vehículos espaciosos, limpios y climatizados.",
+        why4_title: "Soporte por WhatsApp", why4_desc: "Comunicación directa antes, durante y después de tu viaje.",
+        why5_title: "Cualquier Estado", why5_desc: "Viajamos a cualquier estado de los Estados Unidos. Sin límites.",
+        why6_title: "Precio Justo", why6_desc: "Sin sorpresas. Cotización clara desde el inicio del proceso.",
+        footer_tagline: "Tu Raite. Tu Manera. 🚗", footer_links: "Navegación", footer_contact: "Contáctanos",
         footer_rights: "Todos los derechos reservados."
     },
     en: {
         nav_quote: "Get a Quote", nav_book: "Book a Ride", nav_how: "How It Works", nav_contact: "Contact",
-        hero_badge: "ðŸš— State-to-State Rides",
+        hero_badge: "🚗 State-to-State Rides",
         hero_title_1: "Your Ride.", hero_title_2: "Your Way.",
         hero_subtitle: "Comfortable, safe, and on-time rides to any state in the country. Book online and receive your confirmation via WhatsApp.",
         hero_cta1: "Get a Quote", hero_cta2: "Book My Ride",
         trust_1: "100% Safe", trust_2: "WhatsApp Confirmation", trust_3: "Clear Pricing",
         phone_banner_text: "Prefer to call? We're available:",
         quote_tag: "Free Quote", quote_title: "How much will your ride cost?",
-        quote_subtitle: "Select origin and destination â€” we calculate the distance and price instantly.",
-        quote_from: "ðŸ“ Origin City", quote_from_ph: "Ex: Miami, FL",
-        quote_to: "ðŸ Destination City", quote_to_ph: "Ex: Atlanta, GA",
+        quote_subtitle: "Select origin and destination — we calculate the distance and price instantly.",
+        quote_from: "📍 Origin City", quote_from_ph: "Ex: Miami, FL",
+        quote_to: "🏁 Destination City", quote_to_ph: "Ex: Atlanta, GA",
         quote_distance_label: "Calculated Distance (miles)", quote_miles_ph: "Auto-calculated when cities are selected",
-        quote_passengers: "ðŸ‘¥ Number of Passengers", quote_btn: "Calculate My Quote â†’",
+        quote_passengers: "👥 Number of Passengers", quote_btn: "Calculate My Quote →",
         result_est: "Price estimate",
         result_note: "*Estimated price at $1.75 per mile. Final price may vary depending on route and conditions.",
         result_cta: "Book This Ride",
@@ -705,14 +706,14 @@ const translations = {
         step3_title: "We're There!", step3_desc: "Your punctual driver arrives to pick you up and takes you straight to your destination.",
         book_tag: "Book Your Ride", book_title: "Let's Go! Book Now",
         book_subtitle: "Complete the form and we'll contact you via WhatsApp to confirm.",
-        book_name: "ðŸ‘¤ Full Name", book_name_ph: "Your full name",
-        book_phone: "ðŸ“± Phone Number / WhatsApp", book_phone_ph: "(555) 123-4567",
-        book_pickup: "ðŸ“ Pickup Address", book_pickup_ph: "City, State of pickup",
-        book_dropoff: "ðŸ Destination Address", book_dropoff_ph: "City, State of destination",
-        book_date: "ðŸ“… Travel Date", book_time: "ðŸ• Pickup Time",
-        book_pax: "ðŸ‘¥ Number of Passengers", book_luggage: "ðŸ§³ How Many Bags?", luggage_none: "None",
-        book_notes: "ðŸ“ Additional Notes (optional)", book_notes_ph: "Any additional information about your trip...",
-        book_submit: "Book My Ride via WhatsApp ðŸš—",
+        book_name: "👤 Full Name", book_name_ph: "Your full name",
+        book_phone: "📱 Phone Number / WhatsApp", book_phone_ph: "(555) 123-4567",
+        book_pickup: "📍 Pickup Address", book_pickup_ph: "City, State of pickup",
+        book_dropoff: "🏁 Destination Address", book_dropoff_ph: "City, State of destination",
+        book_date: "📅 Travel Date", book_time: "🕐 Pickup Time",
+        book_pax: "👥 Number of Passengers", book_luggage: "🧳 How Many Bags?", luggage_none: "None",
+        book_notes: "📝 Additional Notes (optional)", book_notes_ph: "Any additional information about your trip...",
+        book_submit: "Book My Ride via WhatsApp 🚗",
         book_disclaimer: "Upon submission, WhatsApp will open with your booking details for confirmation.",
         success_title: "Booking Sent!", success_msg: "We'll contact you soon via WhatsApp to confirm your ride. Thank you for trusting KONA RAITES!",
         why_tag: "Why Us?", why_title: "Your trust, our priority",
@@ -722,7 +723,7 @@ const translations = {
         why4_title: "WhatsApp Support", why4_desc: "Direct communication before, during, and after your trip.",
         why5_title: "Any State", why5_desc: "We travel to any state in the United States. No limits.",
         why6_title: "Fair Price", why6_desc: "No surprises. Clear quote from the start of the process.",
-        footer_tagline: "Your Ride. Your Way. ðŸš—", footer_links: "Navigation", footer_contact: "Contact Us",
+        footer_tagline: "Your Ride. Your Way. 🚗", footer_links: "Navigation", footer_contact: "Contact Us",
         footer_rights: "All rights reserved."
     }
 };
@@ -738,7 +739,7 @@ function toggleLang() {
 function applyTranslations() {
     const t = translations[currentLang];
     document.documentElement.lang = currentLang;
-    document.getElementById('langLabel').textContent = currentLang === 'es' ? 'English' : 'EspaÃ±ol';
+    document.getElementById('langLabel').textContent = currentLang === 'es' ? 'English' : 'Español';
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
