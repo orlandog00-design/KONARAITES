@@ -632,6 +632,29 @@ function submitBooking(e) {
         ? `🚗 *Nueva Reserva — KONA RAITES*\n\n👤 *Nombre:* ${name}\n📱 *Teléfono:* ${phone}\n📍 *Recogida:* ${pickup}\n🏁 *Destino:* ${dropoff}\n📅 *Fecha:* ${date}\n🕐 *Hora:* ${time}\n👥 *Pasajeros:* ${pax}\n🧳 *Maletas:* ${luggage}\n📝 *Notas:* ${notes || 'N/A'}`
         : `🚗 *New Booking — KONA RAITES*\n\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n📍 *Pickup:* ${pickup}\n🏁 *Destination:* ${dropoff}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}\n👥 *Passengers:* ${pax}\n🧳 *Bags:* ${luggage}\n📝 *Notes:* ${notes || 'N/A'}`;
 
+    // Send email notification via FormSubmit
+    fetch("https://formsubmit.co/ajax/konaraites@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            Nombre: name,
+            Telefono: phone,
+            Recogida: pickup,
+            Destino: dropoff,
+            Fecha: date,
+            Hora: time,
+            Pasajeros: pax,
+            Maletas: luggage,
+            Notas: notes || "N/A",
+            _subject: "NUEVA RESERVA - KONA RAITES",
+            _template: "table"
+        })
+    }).catch(error => console.log("Email notification error:", error));
+
+    // Open WhatsApp
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
 
     document.getElementById('bookingForm').style.display = 'none';
