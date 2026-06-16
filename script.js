@@ -622,7 +622,10 @@ function submitBooking(e) {
     const pickup = document.getElementById('bookPickup').value.trim();
     const dropoff = document.getElementById('bookDropoff').value.trim();
     const date = document.getElementById('bookDate').value;
-    const time = document.getElementById('bookTime').value;
+    const hour = document.getElementById('bookTimeHour').value;
+    const min = document.getElementById('bookTimeMinute').value;
+    const ampm = document.getElementById('bookTimeAmPm').value;
+    const time = `${hour}:${min} ${ampm}`;
     const pax = document.getElementById('bookPax').value;
     const luggage = document.getElementById('bookLuggage').value;
     const notes = document.getElementById('bookNotes').value.trim();
@@ -661,6 +664,13 @@ function submitBooking(e) {
     document.getElementById('bookingSuccess').style.display = 'block';
 }
 
+function resetBookingForm() {
+    document.getElementById('bookingForm').reset();
+    document.getElementById('bookingSuccess').style.display = 'none';
+    document.getElementById('bookingForm').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('reservar').offsetTop - 80, behavior: 'smooth' });
+}
+
 // ===== TRANSLATIONS =====
 const translations = {
     es: {
@@ -697,6 +707,7 @@ const translations = {
         book_notes: "📝 Notas Adicionales (opcional)", book_notes_ph: "Cualquier información adicional sobre tu viaje...",
         book_submit: "Reservar Mi Raite por WhatsApp 🚗",
         book_disclaimer: "Al enviar, se abrirá WhatsApp con los detalles de tu reserva para confirmación.",
+        book_another: "Hacer Otra Reserva",
         success_title: "¡Reserva Enviada!", success_msg: "Te contactaremos pronto por WhatsApp para confirmar tu raite. ¡Gracias por confiar en KONA RAITES!",
         why_tag: "¿Por Qué Nosotros?", why_title: "Tu confianza, nuestra prioridad",
         why1_title: "100% Seguro", why1_desc: "Choferes verificados y vehículos en excelentes condiciones para tu tranquilidad.",
@@ -742,6 +753,7 @@ const translations = {
         book_notes: "📝 Additional Notes (optional)", book_notes_ph: "Any additional information about your trip...",
         book_submit: "Book My Ride via WhatsApp 🚗",
         book_disclaimer: "Upon submission, WhatsApp will open with your booking details for confirmation.",
+        book_another: "Make Another Booking",
         success_title: "Booking Sent!", success_msg: "We'll contact you soon via WhatsApp to confirm your ride. Thank you for trusting KONA RAITES!",
         why_tag: "Why Us?", why_title: "Your trust, our priority",
         why1_title: "100% Safe", why1_desc: "Verified drivers and vehicles in excellent condition for your peace of mind.",
