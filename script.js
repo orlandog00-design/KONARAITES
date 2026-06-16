@@ -627,7 +627,7 @@ function submitBooking(e) {
     const luggage = document.getElementById('bookLuggage').value;
     const notes = document.getElementById('bookNotes').value.trim();
 
-    const waNumber = '17863971861';
+    const waNumber = '12054216891';
     const msg = currentLang === 'es'
         ? `🚗 *Nueva Reserva — KONA RAITES*\n\n👤 *Nombre:* ${name}\n📱 *Teléfono:* ${phone}\n📍 *Recogida:* ${pickup}\n🏁 *Destino:* ${dropoff}\n📅 *Fecha:* ${date}\n🕐 *Hora:* ${time}\n👥 *Pasajeros:* ${pax}\n🧳 *Maletas:* ${luggage}\n📝 *Notas:* ${notes || 'N/A'}`
         : `🚗 *New Booking — KONA RAITES*\n\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n📍 *Pickup:* ${pickup}\n🏁 *Destination:* ${dropoff}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}\n👥 *Passengers:* ${pax}\n🧳 *Bags:* ${luggage}\n📝 *Notes:* ${notes || 'N/A'}`;
@@ -850,3 +850,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reveal animations
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 });
+
